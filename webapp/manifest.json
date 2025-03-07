@@ -1,0 +1,97 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "excel",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.15.5",
+            "toolsId": "bb40825d-0b82-4b25-9e60-8aef697356e9"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.133.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "excel.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "excel.view",
+                "async": true,
+                "viewPath": "excel.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteExcel",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetExcel"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetExcel": {
+                    "id": "Excel",
+                    "name": "Excel"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "excel.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

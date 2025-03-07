@@ -1,0 +1,53 @@
+<mvc:View controllerName="excel.controller.Excel"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:u="sap.ui.unified">
+    <Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="Read From Excel">
+					<customHeader>
+						<Bar>
+							<contentMiddle>
+								<Label text="Read Data From Excel"/>
+							</contentMiddle>
+							<contentRight>
+                                <Button text="Export Data" type="Neutral" press="onExport" />
+								<u:FileUploader id="FileUploaderId" sameFilenameAllowed="true" iconOnly="false" buttonOnly="true" fileType="XLSX,xlsx"
+									icon="sap-icon://upload" iconFirst="true" style="Emphasized" change="onUpload"/>
+							</contentRight>
+						</Bar>
+					</customHeader>
+					<content>
+						<Table id="excelTable" items="{excelModel>/excelRows}">
+							<columns>
+								<Column>
+									<Label text="Name"/>
+								</Column>
+								<Column>
+									<Label text="Age"/>
+								</Column>
+								<Column>
+									<Label text="Job"/>
+								</Column>
+								<Column>
+									<Label text="Address"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{excelModel>Name}"/>
+										<Text text="{excelModel>Age}"/>
+										<Text text="{excelModel>Job}"/>
+										<Text text="{excelModel>Address}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</content>
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
